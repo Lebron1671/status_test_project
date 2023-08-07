@@ -1,4 +1,7 @@
-class TreeStore:
+from Solutions.IDataStore import IDataStore
+
+
+class DictStore(IDataStore):
     def __init__(self, data):
         self.data = {node.get('id'): node for node in data}
 
@@ -21,7 +24,7 @@ class TreeStore:
         if id in self.data:
             return self.data.get(id)
         else:
-            raise ValueError(f'Element with id {id} does not exist in TreeStore')
+            raise ValueError(f'Element with id {id} does not exist in DictStore')
 
     def getChildren(self, id: int):
         """
@@ -42,7 +45,7 @@ class TreeStore:
                     children.extend(self.getChildren(node.get('id')))
             return children
         else:
-            raise ValueError(f'Element with id {id} does not exist in TreeStore')
+            raise ValueError(f'Element with id {id} does not exist in DictStore')
 
     def getAllParents(self, id: int):
         """
@@ -67,4 +70,4 @@ class TreeStore:
                         break
             return itself_and_parents
         else:
-            raise ValueError(f'Element with id {id} does not exist in TreeStore')
+            raise ValueError(f'Element with id {id} does not exist in DictStore')

@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "status-test-project"
+version = "0.1.0"
+description = ""
+authors = ["Nick Dynin <dynin.nikolaj2010@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "status_test_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
